@@ -238,92 +238,145 @@ body {
 }
 
 
-/* --- 5. Estilos del Menú Desplegable (CORREGIDO) --- */
+/* --- 5. Estilos del Menú Desplegable --- */
 
-.main-nav a span { /* Estilo para las flechitas */
+.main-nav a span { 
     font-size: 0.7em;
     margin-left: 5px;
     display: inline-block;
     vertical-align: middle;
 }
 
-/* --- Nivel 1: Menú Desplegable (Perros/Gatos) --- */
 .dropdown-menu {
-    display: none; /* Oculto por defecto */
+    display: none; 
     position: absolute;
-    top: 120%; /* Justo debajo del enlace, con un margen */
-    left: -20px; /* Alineado a la izquierda del item del menú */
+    top: 120%; 
+    left: -20px; 
     background-color: #000000;
     border: 2px solid #FFD700;
     list-style: none;
     padding: 10px 0;
     margin: 0;
-    min-width: 200px; /* Ancho mínimo */
+    min-width: 200px; 
     z-index: 100;
-    border-radius: 5px; /* Bordes redondeados */
+    border-radius: 5px; 
 }
 
-/* Mostrar el menú al pasar el mouse sobre el 'li' padre */
 .dropdown:hover .dropdown-menu {
-    display: block; /* Se vuelve 'block', no 'flex' */
+    display: block; 
 }
 
 .dropdown-menu li {
-    margin: 0; /* Resetear margen para items del dropdown */
+    margin: 0; 
     width: 100%;
 }
 
-/* Estilo general para todos los links del dropdown */
 .dropdown-menu li a {
     padding: 10px 20px;
     display: block;
     width: 100%;
-    border-bottom: none; /* Quitar borde inferior de enlaces principales */
+    border-bottom: none; 
     font-size: 1em;
 }
 
-/* --- AJUSTE DE CORRECCIÓN --- */
-/* Aplicamos 'flex' SOLO a los links que tienen un submenú (Perros, Gatos) */
 .sub-dropdown > a {
     display: flex;
     justify-content: space-between; 
     align-items: center;
 }
 
-/* Quitar el borde amarillo "activo" de los items del dropdown */
 .dropdown-menu li a:hover,
 .dropdown-menu li a.active {
     border-bottom: none; 
 }
 
-/* Color de fondo al pasar el mouse sobre items del dropdown */
 .dropdown-menu li a:hover {
     background-color: #FFD700;
     color: #000000;
 }
 
-/* --- Nivel 2: Sub-Menú (Razas) --- */
 .sub-dropdown-menu {
-    display: none; /* Oculto por defecto */
+    display: none; 
     position: absolute;
-    top: -2px; /* Alinear con el top del item (contando borde) */
-    left: 100%; /* A la derecha del menú padre */
+    top: -2px; 
+    left: 100%; 
     background-color: #000000;
     border: 2px solid #FFD700;
     list-style: none;
     padding: 10px 0;
     margin: 0;
-    min-width: 250px; /* Más ancho para las listas de razas */
+    min-width: 250px; 
     border-radius: 5px;
 }
 
-/* Mostrar sub-menú al pasar el mouse */
 .sub-dropdown:hover .sub-dropdown-menu {
     display: block; 
 }
 
-/* Resaltar el item "Perros" o "Gatos" cuando su sub-menú está abierto */
 .sub-dropdown:hover > a {
     background-color: #FFD700;
     color: #000000;
+}
+
+
+/* --- 6. Estilos Página de Raza (NUEVO) --- */
+
+.breed-page h1 {
+    font-size: 3em;
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Usamos el mismo estilo de marco para la imagen principal */
+.breed-header-image .photo-frame {
+    max-width: 1000px; /* Ancho máximo para la foto principal */
+    margin: 0 auto 40px auto; /* Centrar el marco */
+}
+
+.breed-content {
+    max-width: 900px; /* Ancho máximo para el texto */
+    margin: 0 auto; /* Centrar el bloque de texto */
+    color: #f0f0f0; /* Blanco suave */
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.breed-content h2 {
+    font-size: 2.2em;
+    color: #FFD700;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #FFD700;
+    padding-bottom: 10px;
+}
+
+.breed-content p {
+    margin-bottom: 20px;
+}
+
+.breed-content ul {
+    list-style: none; /* Quitar viñetas estándar */
+    padding-left: 0;
+}
+
+.breed-content li {
+    padding-left: 1.5em; /* Espacio para el icono */
+    position: relative;
+    margin-bottom: 15px;
+}
+
+/* Usamos un "icono" de viñeta amarillo */
+.breed-content li::before {
+    content: '\25B6'; /* Triángulo amarillo */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #FFD700;
+    font-size: 0.8em;
+}
+
+/* El h2 para "Crías Disponibles" usa la clase que ya teníamos */
+.gallery-title {
+    margin-top: 60px; /* Más espacio arriba */
 }
