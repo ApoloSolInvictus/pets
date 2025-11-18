@@ -20,7 +20,7 @@ body {
     padding: 20px 40px;
     border-bottom: 3px solid #FFD700; 
     position: relative;
-    z-index: 100; /* Siempre al frente */
+    z-index: 100; /* Incrementado para estar siempre al frente */
     background-color: #000000; 
 }
 
@@ -60,21 +60,21 @@ body {
     border-bottom: 2px solid #FFD700; 
 }
 
-/* --- 1. Hero Slider (Página de Inicio) --- */
+/* --- 1. Hero Slider --- */
 .hero-slider {
     position: relative; 
     width: 100%;
     height: 100vh; 
     overflow: hidden; 
-    margin-top: -93px; 
-    z-index: 10; 
+    margin-top: -93px; /* Ajuste para la altura del header */
+    z-index: 10; /* Z-index base para los heroes */
 }
 
-/* ... (resto de estilos del .hero-slider, .slide, etc. sin cambios) ... */
 .slider-wrapper {
     width: 100%;
     height: 100%;
 }
+
 .slide {
     position: absolute; 
     top: 0;
@@ -87,18 +87,21 @@ body {
     animation: fadeSlider 25s infinite; 
     box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
 }
+
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 5s; }
 .slide:nth-child(3) { animation-delay: 10s; }
 .slide:nth-child(4) { animation-delay: 15s; }
 .slide:nth-child(5) { animation-delay: 20s; }
+
 .slide-content {
     position: absolute;
     bottom: 80px;
     left: 80px;
-    z-index: 12; 
+    z-index: 12; /* Sobre el slide */
     max-width: 600px;
 }
+
 .slide-content h2 {
     font-size: 2.8em;
     color: #FFD700;
@@ -106,11 +109,13 @@ body {
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
 }
+
 .slide-content p {
     font-size: 1.4em;
     color: #FFFFFF;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
+
 @keyframes fadeSlider {
     0%   { opacity: 0; }
     10%  { opacity: 1; } 
@@ -121,34 +126,41 @@ body {
 
 
 /* --- 2. Contenido Principal y Sección Intro --- */
+
 .content-area {
     padding: 40px;
     max-width: 1200px; 
     margin: 0 auto; 
 }
+
 .home-content {
     position: relative;
-    z-index: 50; 
+    z-index: 50; /* Para que flote sobre el hero-slider */
 }
+
+
 .intro-section {
     text-align: center;
     max-width: 900px; 
     margin: 0 auto 60px auto; 
 }
-/* ... (resto de estilos de .intro-section sin cambios) ... */
+
 .intro-section h2 {
     font-size: 2.2em;
     color: #FFD700; 
     margin-bottom: 20px;
 }
+
 .intro-section p {
     font-size: 1.1em;
     color: #f0f0f0; 
     line-height: 1.8;
 }
+
 .intro-section p:last-of-type {
     margin-top: 15px;
 }
+
 
 /* --- 3. Galería y Recuadros Amarillos --- */
 .gallery-title {
@@ -157,39 +169,46 @@ body {
     color: #FFD700;
     margin-bottom: 40px;
 }
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px; 
 }
-/* ... (resto de estilos de .pet-card, .photo-frame, etc. sin cambios) ... */
+
 .pet-card {
     background-color: #111; 
     border: 1px solid #333; 
 }
+
 .photo-frame {
     border: 6px solid #FFD700; 
     padding: 8px; 
     background-color: #000; 
     margin: 15px; 
 }
+
 .photo-frame img {
     width: 100%; 
     display: block; 
 }
+
 .pet-info {
     padding: 0 20px 20px 20px; 
     text-align: center;
 }
+
 .pet-info h3 {
     color: #FFD700;
     margin-bottom: 10px;
 }
+
 .pet-info p {
     font-size: 0.9em;
     color: #ccc;
     margin-bottom: 15px;
 }
+
 .btn-details {
     display: inline-block;
     background-color: #FFD700;
@@ -200,6 +219,7 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
+
 .btn-details:hover {
     background-color: #FFFFFF;
 }
@@ -215,13 +235,14 @@ body {
 
 
 /* --- 5. Estilos del Menú Desplegable --- */
-/* ... (todos los estilos del menú desplegable sin cambios) ... */
+
 .main-nav a span { 
     font-size: 0.7em;
     margin-left: 5px;
     display: inline-block;
     vertical-align: middle;
 }
+
 .dropdown-menu {
     display: none; 
     position: absolute;
@@ -236,13 +257,16 @@ body {
     z-index: 100;
     border-radius: 5px; 
 }
+
 .dropdown:hover .dropdown-menu {
     display: block; 
 }
+
 .dropdown-menu li {
     margin: 0; 
     width: 100%;
 }
+
 .dropdown-menu li a {
     padding: 10px 20px;
     display: block;
@@ -250,19 +274,23 @@ body {
     border-bottom: none; 
     font-size: 1em;
 }
+
 .sub-dropdown > a {
     display: flex;
     justify-content: space-between; 
     align-items: center;
 }
+
 .dropdown-menu li a:hover,
 .dropdown-menu li a.active {
     border-bottom: none; 
 }
+
 .dropdown-menu li a:hover {
     background-color: #FFD700;
     color: #000000;
 }
+
 .sub-dropdown-menu {
     display: none; 
     position: absolute;
@@ -276,16 +304,21 @@ body {
     min-width: 250px; 
     border-radius: 5px;
 }
+
 .sub-dropdown:hover .sub-dropdown-menu {
     display: block; 
 }
+
 .sub-dropdown:hover > a {
     background-color: #FFD700;
     color: #000000;
 }
 
+
 /* --- 6. Contenido de las Páginas de Raza (Texto y Crías) --- */
-/* ... (estos estilos se mantienen para el texto) ... */
+.breed-page-content {
+}
+
 .breed-page-content .breed-content {
     max-width: 900px; 
     margin: 0 auto; 
@@ -294,6 +327,7 @@ body {
     line-height: 1.8;
     padding: 20px 0; 
 }
+
 .breed-page-content .breed-content h2 {
     font-size: 2.2em;
     color: #FFD700;
@@ -302,18 +336,22 @@ body {
     border-bottom: 1px solid #FFD700;
     padding-bottom: 10px;
 }
+
 .breed-page-content .breed-content p {
     margin-bottom: 20px;
 }
+
 .breed-page-content .breed-content ul {
     list-style: none; 
     padding-left: 0;
 }
+
 .breed-page-content .breed-content li {
     padding-left: 1.5em; 
     position: relative;
     margin-bottom: 15px;
 }
+
 .breed-page-content .breed-content li::before {
     content: '\25B6'; 
     position: absolute;
@@ -322,31 +360,32 @@ body {
     color: #FFD700;
     font-size: 0.8em;
 }
+
 .breed-page-content .gallery-title {
     margin-top: 60px; 
 }
 
 
 /* --- 7. Hero de Raza (MODIFICADO) --- */
+
 .hero-breed {
-    height: 60vh; 
+    /* --- ¡CAMBIO AQUÍ! --- */
+    height: 100vh; /* De 60vh a 100vh para pantalla completa */
+    
     width: 100%;
     background-size: cover;
     background-position: center;
-    
-    /* Centrar el título y el botón */
     display: flex;
     flex-direction: column; /* Apila los elementos verticalmente */
     justify-content: center;
     align-items: center;
-    
     color: #FFD700;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.9); 
     position: relative; 
     z-index: 10;
     margin-top: -93px; 
     box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); 
-    padding: 20px; /* Espacio por si el texto es muy largo */
+    padding: 20px;
 }
 
 .hero-breed h1 {
@@ -375,12 +414,11 @@ body {
     background-color: #c90000; /* Rojo más oscuro */
     border-color: #c90000;
     color: #FFFFFF;
-    border-bottom: 2px solid #c90000; /* Quita el borde de :hover de .main-nav a */
+    border-bottom: 2px solid #c90000; 
 }
 
-/* Ya no necesitamos .video-section, lo borramos */
 
-/* --- 8. Estilos del Popup de Video (Lightbox) (NUEVO) --- */
+/* --- 8. Estilos del Popup de Video (Lightbox) --- */
 
 .video-popup-overlay {
     display: none; /* Oculto por defecto */
@@ -391,8 +429,6 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro traslúcido */
     z-index: 1000; /* Por encima de todo */
-    
-    /* Centrar el contenido del popup */
     justify-content: center;
     align-items: center;
 }
@@ -402,7 +438,6 @@ body {
     width: 90%; /* 90% del ancho de la pantalla */
     max-width: 900px; /* Pero no más de 900px */
     background-color: #000;
-    /* Aplicamos el marco amarillo al popup en sí */
     border: 4px solid #FFD700;
     padding: 5px; /* Espacio entre el marco y el video */
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
