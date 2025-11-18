@@ -1,69 +1,63 @@
 /* --- Configuración Global --- */
 * {
-    /* Esto hace que el tamaño de las cajas incluya el borde y el padding */
     box-sizing: border-box; 
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif; /* Una fuente limpia y legible */
-    background-color: #000000; /* Fondo negro principal */
-    color: #FFFFFF; /* Texto blanco */
+    font-family: Arial, sans-serif; 
+    background-color: #000000; 
+    color: #FFFFFF; 
     line-height: 1.6;
 }
 
 /* --- Encabezado y Navegación --- */
 .main-header {
-    display: flex; /* Coloca el logo y el menú en línea */
-    justify-content: space-between; /* Espacio entre el logo y el menú */
+    display: flex; 
+    justify-content: space-between; 
     align-items: center;
     padding: 20px 40px;
-    border-bottom: 3px solid #FFD700; /* Línea inferior amarilla */
-    /* Damos una posición para que esté sobre el slider */
+    border-bottom: 3px solid #FFD700; 
     position: relative;
     z-index: 10;
-    background-color: #000000; /* Fondo negro para el header */
+    background-color: #000000; 
 }
 
-/* Estilos para el logo */
 .logo a {
-    display: block; /* Ayuda a alinear la imagen */
+    display: block; 
 }
 
 .logo img {
-    /* Alto del logo: 50px */
     height: 50px; 
-    width: auto; /* El ancho se ajusta solo para no deformar la imagen */
-    display: block; /* Elimina espacios extra debajo de la imagen */
+    width: auto; 
+    display: block; 
 }
 
-/* Usamos '>' para que 'display: flex' solo afecte al <ul> principal */
 .main-nav > ul {
-    list-style: none; /* Quita los puntos de la lista */
-    display: flex; /* Coloca los elementos del menú en línea */
+    list-style: none; 
+    display: flex; 
 }
 
 .main-nav li {
-    margin-left: 25px; /* Espacio entre elementos del menú */
-    position: relative; /* Clave para el dropdown */
+    margin-left: 25px; 
+    position: relative; 
 }
 
 .main-nav a {
-    text-decoration: none; /* Quita el subrayado de los enlaces */
+    text-decoration: none; 
     color: #FFFFFF;
     font-weight: bold;
     font-size: 1.1em;
     padding-bottom: 5px;
-    border-bottom: 2px solid transparent; /* Borde inferior transparente */
-    transition: all 0.3s ease; /* Transición suave */
+    border-bottom: 2px solid transparent; 
+    transition: all 0.3s ease; 
 }
 
-/* Efecto al pasar el mouse sobre el menú */
 .main-nav a:hover,
 .main-nav a.active {
-    color: #FFD700; /* Color amarillo al pasar el mouse */
-    border-bottom: 2px solid #FFD700; /* Borde amarillo al pasar el mouse */
+    color: #FFD700; 
+    border-bottom: 2px solid #FFD700; 
 }
 
 /* --- 1. Hero Slider --- */
@@ -72,7 +66,6 @@ body {
     width: 100%;
     height: 100vh; 
     overflow: hidden; 
-    /* Corrección del alto del header */
     margin-top: -93px; 
 }
 
@@ -94,14 +87,12 @@ body {
     box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
 }
 
-/* Tiempos de animación para cada slide */
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 5s; }
 .slide:nth-child(3) { animation-delay: 10s; }
 .slide:nth-child(4) { animation-delay: 15s; }
 .slide:nth-child(5) { animation-delay: 20s; }
 
-/* Contenido de texto sobre el slider */
 .slide-content {
     position: absolute;
     bottom: 80px;
@@ -124,7 +115,6 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
 
-/* Animación de Fundido (Fade) */
 @keyframes fadeSlider {
     0%   { opacity: 0; }
     10%  { opacity: 1; } 
@@ -319,7 +309,7 @@ body {
 }
 
 
-/* --- 6. Estilos Página de Raza (NUEVO) --- */
+/* --- 6. Estilos Página de Raza (MODIFICADO) --- */
 
 .breed-page h1 {
     font-size: 3em;
@@ -328,11 +318,37 @@ body {
     margin-bottom: 30px;
 }
 
-/* Usamos el mismo estilo de marco para la imagen principal */
-.breed-header-image .photo-frame {
-    max-width: 1000px; /* Ancho máximo para la foto principal */
-    margin: 0 auto 40px auto; /* Centrar el marco */
+/* --- ¡CAMBIO AQUÍ! ---
+  Estilos para el contenedor del video, con el marco amarillo 
+*/
+.breed-header-video {
+    max-width: 1000px; /* Ancho máximo */
+    margin: 0 auto 40px auto; /* Centrar */
+    /* Re-usamos el estilo del marco */
+    border: 6px solid #FFD700;
+    padding: 8px;
+    background-color: #000;
 }
+
+/* Contenedor para hacerlo responsivo (16:9) */
+.video-responsive-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* Proporción 16:9 (9 / 16 = 0.5625) */
+}
+
+/* El iframe se expande para llenar el contenedor */
+.video-responsive-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+/* --- FIN DEL CAMBIO --- */
 
 .breed-content {
     max-width: 900px; /* Ancho máximo para el texto */
@@ -366,7 +382,6 @@ body {
     margin-bottom: 15px;
 }
 
-/* Usamos un "icono" de viñeta amarillo */
 .breed-content li::before {
     content: '\25B6'; /* Triángulo amarillo */
     position: absolute;
@@ -376,7 +391,6 @@ body {
     font-size: 0.8em;
 }
 
-/* El h2 para "Crías Disponibles" usa la clase que ya teníamos */
 .gallery-title {
-    margin-top: 60px; /* Más espacio arriba */
+    margin-top: 60px; 
 }
