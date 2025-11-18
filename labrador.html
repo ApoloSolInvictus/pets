@@ -26,32 +26,13 @@
                             <ul class="sub-dropdown-menu">
                                 <li><a href="labrador.html" class="active">Labrador Retriever</a></li>
                                 <li><a href="#">Pastor Alemán</a></li>
-                                <li><a href="#">Golden Retriever</a></li>
-                                <li><a href="#">Bulldog</a></li>
-                                <li><a href="#">Poodle (Caniche)</a></li>
-                                <li><a href="#">Beagle</a></li>
-                                <li><a href="#">Rottweiler</a></li>
-                                <li><a href="#">Pug (Carlino)</a></li>
-                                <li><a href="#">Shih Tzu</a></li>
-                                <li><a href="#">Husky Siberiano</a></li>
-                                <li><a href="#">Chihuahua</a></li>
-                                <li><a href="#">Boxer</a></li>
-                            </ul>
+                                </ul>
                         </li>
                         <li class="sub-dropdown">
                             <a href="#">Gatos <span>&#9656;</span></a>
                             <ul class="sub-dropdown-menu">
                                 <li><a href="#">Siamés</a></li>
-                                <li><a href="#">Persa</a></li>
-                                <li><a href="#">Maine Coon</a></li>
-                                <li><a href="#">Ragdoll</a></li>
-                                <li><a href="#">Bengalí</a></li>
-                                <li><a href="#">Esfinge (Sphynx)</a></li>
-                                <li><a href="#">Sagrado de Birmania</a></li>
-                                <li><a href="#">Scottish Fold</a></li>
-                                <li><a href="#">Abisinio</a></li>
-                                <li><a href="#">Azul Ruso</a></li>
-                            </ul>
+                                </ul>
                         </li>
                     </ul>
                 </li>
@@ -61,22 +42,11 @@
         </nav>
     </header>
 
-    
-    <section class="hero-breed" style="background-image: url('images/labrador-hero-bg.jpg');">
+    <section class="hero-breed" style="background-image: url('images/labrador-hero-bg.png');">
         <h1>Labrador Retriever</h1>
-    </section>
-
-    
-    <section class="video-section">
-        <div class="video-responsive-container">
-            <iframe 
-                src="https://www.youtube.com/embed/FllVxpaq-5Q" 
-                title="Cuidado de un Labrador Retriever adulto" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
+        <a href="#" id="open-video-btn" class="video-btn">
+            &#9658; VER VIDEO
+        </a>
     </section>
 
     <main class="content-area">
@@ -93,9 +63,6 @@
                 </p>
 
                 <h2>Cuidados Esenciales</h2>
-                <p>
-                    El Labrador es conocido por ser un compañero dulce, inteligente y lleno de energía. Para que tenga una vida feliz y saludable, los dueños deben considerar lo siguiente:
-                </p>
                 <ul>
                     <li>
                         <strong>Ejercicio:</strong> Son perros de alta energía que requieren mucho ejercicio diario y estimulación mental. Disfrutan de largas caminatas, correr, nadar y, por supuesto, ¡jugar a buscar la pelota!.
@@ -110,13 +77,11 @@
                         <strong>Salud:</strong> Son propensos a ciertos problemas de salud, como la displasia de cadera y codo. Las visitas regulares al veterinario para chequeos, vacunas y desparasitación son fundamentales. También se debe cuidar su higiene dental.
                     </li>
                 </ul>
-
             </div>
 
             <h2 class="gallery-title">Crías Disponibles de Labrador Retriever</h2>
             
             <section class="gallery">
-            
                 <div class="pet-card">
                     <div class="photo-frame">
                         <img src="https://via.placeholder.com/400x300/111/FFF?text=Foto+Cachorro+1" alt="Foto de un cachorro">
@@ -128,39 +93,32 @@
                         <a href="#" class="btn-details">Contactar al Criador</a>
                     </div>
                 </div>
-    
-                <div class="pet-card">
-                    <div class="photo-frame">
-                        <img src="https://via.placeholder.com/400x300/222/FFF?text=Foto+Cachorro+2" alt="Foto de un cachorro">
-                    </div>
-                    <div class="pet-info">
-                        <h3>Cachorros Negros (2 Machos)</h3>
-                        <p>Padres: "Zeus" y "Atenea" (Pedigrí verificado)</p>
-                        <p><strong>Precio: $1100</strong></p>
-                        <a href="#" class="btn-details">Contactar al Criador</a>
-                    </div>
-                </div>
-    
-                <div class="pet-card">
-                    <div class="photo-frame">
-                        <img src="https://via.placeholder.com/400x300/333/FFF?text=Foto+Cachorro+3" alt="Foto de un cachorro">
-                    </div>
-                    <div class="pet-info">
-                        <h3>Cachorros Chocolate (1 Hembra)</h3>
-                        <p>Padres: "Thor" y "Frida" (Pedigrí verificado)</p>
-                        <p><strong>Precio: $1300</strong></p>
-                        <a href="#" class="btn-details">Contactar al Criador</a>
-                    </div>
-                </div>
-    
-            </section>
+                </section>
 
         </section>
     </main>
 
+    <div id="video-popup-overlay" class="video-popup-overlay">
+        <div class="video-popup-content">
+            <span id="close-video-btn" class="video-popup-close">&times;</span>
+            
+            <div class="video-responsive-container">
+                <iframe 
+                    id="youtube-video"
+                    src="https://www.youtube.com/embed/FllVxpaq-5Q" 
+                    title="Cuidado de un Labrador Retriever adulto" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
     <footer class="main-footer">
         <p>&copy; 2025 Pets. Sitio desarrollado por Apolo (W Studio) y Asistente Gemini.</p>
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
