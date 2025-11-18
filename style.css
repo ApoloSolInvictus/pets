@@ -309,56 +309,22 @@ body {
 }
 
 
-/* --- 6. Estilos Página de Raza (MODIFICADO) --- */
-
-.breed-page h1 {
-    font-size: 3em;
-    color: #FFD700;
-    text-align: center;
-    margin-bottom: 30px;
+/* --- 6. Contenido de las Páginas de Raza (Texto y Crías) --- */
+/* Se ha cambiado .breed-page a .breed-page-content */
+.breed-page-content {
+    /* Ya no necesita el h1 aquí, ni la imagen/video principal */
 }
 
-/* --- ¡CAMBIO AQUÍ! ---
-  Estilos para el contenedor del video, con el marco amarillo 
-*/
-.breed-header-video {
-    max-width: 1000px; /* Ancho máximo */
-    margin: 0 auto 40px auto; /* Centrar */
-    /* Re-usamos el estilo del marco */
-    border: 6px solid #FFD700;
-    padding: 8px;
-    background-color: #000;
-}
-
-/* Contenedor para hacerlo responsivo (16:9) */
-.video-responsive-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    padding-top: 56.25%; /* Proporción 16:9 (9 / 16 = 0.5625) */
-}
-
-/* El iframe se expande para llenar el contenedor */
-.video-responsive-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-}
-/* --- FIN DEL CAMBIO --- */
-
-.breed-content {
+.breed-page-content .breed-content {
     max-width: 900px; /* Ancho máximo para el texto */
     margin: 0 auto; /* Centrar el bloque de texto */
     color: #f0f0f0; /* Blanco suave */
     font-size: 1.1em;
     line-height: 1.8;
+    padding: 20px 0; /* Un poco de padding vertical */
 }
 
-.breed-content h2 {
+.breed-page-content .breed-content h2 {
     font-size: 2.2em;
     color: #FFD700;
     margin-top: 40px;
@@ -367,23 +333,23 @@ body {
     padding-bottom: 10px;
 }
 
-.breed-content p {
+.breed-page-content .breed-content p {
     margin-bottom: 20px;
 }
 
-.breed-content ul {
-    list-style: none; /* Quitar viñetas estándar */
+.breed-page-content .breed-content ul {
+    list-style: none; 
     padding-left: 0;
 }
 
-.breed-content li {
-    padding-left: 1.5em; /* Espacio para el icono */
+.breed-page-content .breed-content li {
+    padding-left: 1.5em; 
     position: relative;
     margin-bottom: 15px;
 }
 
-.breed-content li::before {
-    content: '\25B6'; /* Triángulo amarillo */
+.breed-page-content .breed-content li::before {
+    content: '\25B6'; 
     position: absolute;
     left: 0;
     top: 0;
@@ -391,6 +357,66 @@ body {
     font-size: 0.8em;
 }
 
-.gallery-title {
+.breed-page-content .gallery-title {
     margin-top: 60px; 
+}
+
+
+/* --- 7. Estilos de la Página de Raza (Hero y Video Grande) (NUEVO) --- */
+
+/* Hero para la página de raza */
+.hero-breed {
+    height: 60vh; /* Altura más baja que el hero principal, pero aún grande */
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFD700;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.9); /* Sombra fuerte para el texto */
+    position: relative;
+    z-index: 1; /* Para estar debajo del header, pero sobre el video */
+    margin-top: -93px; /* Igual que el hero principal */
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); /* Capa oscura */
+}
+
+.hero-breed h1 {
+    font-size: 4.5em; /* Título muy grande */
+    text-align: center;
+    margin-bottom: 0; /* Quitar margen inferior que tenía antes */
+    line-height: 1;
+}
+
+/* Sección del video a pantalla completa (o casi) */
+.video-section {
+    width: 100%;
+    padding: 20px; /* Un pequeño padding general */
+    background-color: #000; /* Fondo negro */
+    margin-bottom: 40px; /* Espacio antes del contenido */
+}
+
+/* Contenedor responsivo para el video (16:9) */
+.video-responsive-container {
+    max-width: 1200px; /* Ocupa casi todo el ancho, pero tiene un límite */
+    margin: 0 auto; /* Centrar el video */
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* Proporción 16:9 (altura es 56.25% del ancho) */
+    
+    /* Le aplicamos el marco amarillo al contenedor del video */
+    border: 6px solid #FFD700;
+    padding: 8px;
+    background-color: #000;
+}
+
+.video-responsive-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
 }
