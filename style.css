@@ -1,7 +1,5 @@
 /* --- Configuración Global --- */
 * {
-    /* Esto hace que el tamaño de las c/* --- Configuración Global --- */
-* {
     /* Esto hace que el tamaño de las cajas incluya el borde y el padding */
     box-sizing: border-box; 
     margin: 0;
@@ -34,7 +32,7 @@ body {
 }
 
 .logo img {
-    /* Ajusta este alto según veas conveniente */
+    /* Alto del logo: 50px */
     height: 50px; 
     width: auto; /* El ancho se ajusta solo para no deformar la imagen */
     display: block; /* Elimina espacios extra debajo de la imagen */
@@ -66,14 +64,18 @@ body {
     border-bottom: 2px solid #FFD700; /* Borde amarillo al pasar el mouse */
 }
 
-/* --- 1. Hero Slider (MODIFICADO) --- */
+/* --- 1. Hero Slider (CORREGIDO) --- */
 .hero-slider {
     position: relative; /* Contenedor para las diapositivas absolutas */
     width: 100%;
-    height: 100vh; /* CAMBIO: De 70vh a 100vh para pantalla completa */
+    height: 100vh; /* 100% de la altura de la ventana */
     overflow: hidden; /* Oculta las diapositivas que no se ven */
-    /* Colocamos el slider detrás del header */
-    margin-top: -96px; /* Ajusta esto al alto exacto de tu header (padding 2*20px + alto logo 50px + borde 3px = 93px. 96px da un pequeño margen) */
+    
+    /* LA CORRECCIÓN:
+      Pull-up = (padding 2*20px + alto logo 50px + borde 3px = 93px)
+      Cambiamos -96px por -93px para un ajuste perfecto.
+    */
+    margin-top: -93px; 
 }
 
 .slider-wrapper {
@@ -136,7 +138,7 @@ body {
 }
 
 
-/* --- 2. Contenido Principal y Sección Intro (MODIFICADO) --- */
+/* --- 2. Contenido Principal y Sección Intro --- */
 .content-area {
     padding: 40px;
     max-width: 1200px; 
@@ -149,11 +151,7 @@ body {
     text-align: center;
     max-width: 900px; /* Ancho máximo para la intro */
     margin: 0 auto 60px auto; /* Centrado y con espacio inferior */
-    
-    /* CAMBIO: Se eliminó el fondo, padding y borde */
-    /* background-color: #0a0a0a; */
-    /* padding: 40px; */
-    /* border: 1px solid #FFD700; */
+    /* Estilo sobrio sin recuadro */
 }
 
 .intro-section h2 {
@@ -183,9 +181,6 @@ body {
 
 .gallery {
     display: grid;
-    /* Crea una cuadrícula responsiva: 
-       Intenta poner 3 columnas (1fr 1fr 1fr).
-       Si no caben, pon 2. Si no, pon 1. */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px; /* Espacio entre las tarjetas */
 }
@@ -195,263 +190,21 @@ body {
     border: 1px solid #333; /* Borde sutil para la tarjeta */
 }
 
-/* ESTA ES LA PARTE CLAVE: El Recuadro Amarillo */
+/* El Recuadro Amarillo */
 .photo-frame {
-    border: 6px solid #FFD700; /* ¡El recuadro amarillo que pediste! */
-    padding: 8px; /* Espacio entre el recuadro y la foto */
-    background-color: #000; /* Fondo negro dentro del recuadro */
-    margin: 15px; /* Margen para separar el recuadro del borde de la tarjeta */
+    border: 6px solid #FFD700; 
+    padding: 8px; 
+    background-color: #000; 
+    margin: 15px; 
 }
 
 .photo-frame img {
-    width: 100%; /* La imagen ocupa todo el espacio del recuadro */
-    display: block; /* Evita espacios extra debajo de la imagen */
+    width: 100%; 
+    display: block; 
 }
 
 .pet-info {
-    padding: 0 20px 20px 20px; /* Relleno para la info debajo de la foto */
-    text-align: center;
-}
-
-.pet-info h3 {
-    color: #FFD700;
-    margin-bottom: 10px;
-}
-
-.pet-info p {
-    font-size: 0.9em;
-    color: #ccc;
-    margin-bottom: 15px;
-}
-
-.btn-details {
-    display: inline-block;
-    background-color: #FFD700;
-    color: #000000;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-details:hover {
-    background-color: #FFFFFF;
-}
-
-/* --- 4. Pie de Página --- */
-.main-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    border-top: 3px solid #FFD700; /* Línea superior amarilla */
-    color: #888; /* Color grisáceo para el copyright */
-}ajas incluya el borde y el padding */
-    box-sizing: border-box; 
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, sans-serif; /* Una fuente limpia y legible */
-    background-color: #000000; /* Fondo negro principal */
-    color: #FFFFFF; /* Texto blanco */
-    line-height: 1.6;
-}
-
-/* --- Encabezado y Navegación --- */
-.main-header {
-    display: flex; /* Coloca el logo y el menú en línea */
-    justify-content: space-between; /* Espacio entre el logo y el menú */
-    align-items: center;
-    padding: 20px 40px;
-    border-bottom: 3px solid #FFD700; /* Línea inferior amarilla */
-    /* Damos una posición para que esté sobre el slider */
-    position: relative;
-    z-index: 10;
-    background-color: #000000; /* Fondo negro para el header */
-}
-
-/* Estilos para el logo (reemplaza al .logo h1) */
-.logo a {
-    display: block; /* Ayuda a alinear la imagen */
-}
-
-.logo img {
-    /* Ajusta este alto según veas conveniente */
-    height: 50px; 
-    width: auto; /* El ancho se ajusta solo para no deformar la imagen */
-    display: block; /* Elimina espacios extra debajo de la imagen */
-}
-
-.main-nav ul {
-    list-style: none; /* Quita los puntos de la lista */
-    display: flex; /* Coloca los elementos del menú en línea */
-}
-
-.main-nav li {
-    margin-left: 25px; /* Espacio entre elementos del menú */
-}
-
-.main-nav a {
-    text-decoration: none; /* Quita el subrayado de los enlaces */
-    color: #FFFFFF;
-    font-weight: bold;
-    font-size: 1.1em;
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparent; /* Borde inferior transparente */
-    transition: all 0.3s ease; /* Transición suave */
-}
-
-/* Efecto al pasar el mouse sobre el menú */
-.main-nav a:hover,
-.main-nav a.active {
-    color: #FFD700; /* Color amarillo al pasar el mouse */
-    border-bottom: 2px solid #FFD700; /* Borde amarillo al pasar el mouse */
-}
-
-/* --- 1. Hero Slider (NUEVO) --- */
-.hero-slider {
-    position: relative; /* Contenedor para las diapositivas absolutas */
-    width: 100%;
-    height: 70vh; /* 70% de la altura de la ventana */
-    overflow: hidden; /* Oculta las diapositivas que no se ven */
-    /* Colocamos el slider detrás del header */
-    margin-top: -96px; /* Ajusta esto al alto exacto de tu header (padding 2*20px + alto logo 50px + borde 3px = 93px. 96px da un pequeño margen) */
-}
-
-.slider-wrapper {
-    width: 100%;
-    height: 100%;
-}
-
-.slide {
-    position: absolute; /* Todas las diapositivas apiladas */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover; /* Cubre todo el espacio */
-    background-position: center; /* Centra la imagen */
-    opacity: 0; /* Ocultas por defecto */
-    animation: fadeSlider 25s infinite; /* 25s = 5s por 5 imágenes */
-    
-    /* Efecto de 'capa' oscura sobre la imagen para legibilidad */
-    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
-}
-
-/* Tiempos de animación para cada slide */
-.slide:nth-child(1) { animation-delay: 0s; }
-.slide:nth-child(2) { animation-delay: 5s; }
-.slide:nth-child(3) { animation-delay: 10s; }
-.slide:nth-child(4) { animation-delay: 15s; }
-.slide:nth-child(5) { animation-delay: 20s; }
-
-/* Contenido de texto sobre el slider */
-.slide-content {
-    position: absolute;
-    bottom: 80px;
-    left: 80px;
-    z-index: 2;
-    max-width: 600px;
-}
-
-.slide-content h2 {
-    font-size: 2.8em;
-    color: #FFD700;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para legibilidad */
-}
-
-.slide-content p {
-    font-size: 1.4em;
-    color: #FFFFFF;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-}
-
-/* Animación de Fundido (Fade) */
-@keyframes fadeSlider {
-    0%   { opacity: 0; }
-    10%  { opacity: 1; } /* Aparece (dura 2.5s) */
-    20%  { opacity: 1; } /* Se mantiene visible (dura 2.5s) */
-    30%  { opacity: 0; } /* Desaparece (dura 2.5s) */
-    100% { opacity: 0; } /* Permanece oculto */
-}
-
-
-/* --- 2. Contenido Principal y Sección Intro (MODIFICADO) --- */
-.content-area {
-    padding: 40px;
-    max-width: 1200px; 
-    margin: 0 auto; 
-    position: relative; /* Para que esté sobre el slider */
-    z-index: 5;
-}
-
-.intro-section {
-    text-align: center;
-    max-width: 900px; /* Ancho máximo para la intro */
-    margin: 0 auto 60px auto; /* Centrado y con espacio inferior */
-    background-color: #0a0a0a; /* Fondo negro ligeramente distinto */
-    padding: 40px;
-    border: 1px solid #FFD700; /* Borde amarillo sutil */
-}
-
-.intro-section h2 {
-    font-size: 2.2em;
-    color: #FFD700; 
-    margin-bottom: 20px;
-}
-
-.intro-section p {
-    font-size: 1.1em;
-    color: #f0f0f0; /* Un blanco menos intenso */
-    line-height: 1.8;
-}
-
-.intro-section p:last-of-type {
-    margin-top: 15px;
-}
-
-
-/* --- 3. Galería y Recuadros Amarillos (MODIFICADO) --- */
-.gallery-title {
-    text-align: center;
-    font-size: 2.2em;
-    color: #FFD700;
-    margin-bottom: 40px;
-}
-
-.gallery {
-    display: grid;
-    /* Crea una cuadrícula responsiva: 
-       Intenta poner 3 columnas (1fr 1fr 1fr).
-       Si no caben, pon 2. Si no, pon 1. */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Espacio entre las tarjetas */
-}
-
-.pet-card {
-    background-color: #111; /* Un fondo negro un poco más claro */
-    border: 1px solid #333; /* Borde sutil para la tarjeta */
-}
-
-/* ESTA ES LA PARTE CLAVE: El Recuadro Amarillo */
-.photo-frame {
-    border: 6px solid #FFD700; /* ¡El recuadro amarillo que pediste! */
-    padding: 8px; /* Espacio entre el recuadro y la foto */
-    background-color: #000; /* Fondo negro dentro del recuadro */
-    margin: 15px; /* Margen para separar el recuadro del borde de la tarjeta */
-}
-
-.photo-frame img {
-    width: 100%; /* La imagen ocupa todo el espacio del recuadro */
-    display: block; /* Evita espacios extra debajo de la imagen */
-}
-
-.pet-info {
-    padding: 0 20px 20px 20px; /* Relleno para la info debajo de la foto */
+    padding: 0 20px 20px 20px; 
     text-align: center;
 }
 
@@ -489,4 +242,3 @@ body {
     border-top: 3px solid #FFD700; /* Línea superior amarilla */
     color: #888; /* Color grisáceo para el copyright */
 }
-
