@@ -38,7 +38,9 @@ body {
     display: block; /* Elimina espacios extra debajo de la imagen */
 }
 
-.main-nav ul {
+/* --- CORRECCIÓN AQUÍ --- */
+/* Usamos '>' para que 'display: flex' solo afecte al <ul> principal */
+.main-nav > ul {
     list-style: none; /* Quita los puntos de la lista */
     display: flex; /* Coloca los elementos del menú en línea */
 }
@@ -237,7 +239,7 @@ body {
 }
 
 
-/* --- 5. Estilos del Menú Desplegable (NUEVO) --- */
+/* --- 5. Estilos del Menú Desplegable --- */
 
 .main-nav a span { /* Estilo para las flechitas */
     font-size: 0.7em;
@@ -260,11 +262,13 @@ body {
     min-width: 200px; /* Ancho mínimo */
     z-index: 100;
     border-radius: 5px; /* Bordes redondeados */
+    /* Importante: Aseguramos que no sea 'flex' */
+    display: none; 
 }
 
 /* Mostrar el menú al pasar el mouse sobre el 'li' padre */
 .dropdown:hover .dropdown-menu {
-    display: block; 
+    display: block; /* Se vuelve 'block', no 'flex' */
 }
 
 .dropdown-menu li {
