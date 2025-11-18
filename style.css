@@ -20,7 +20,7 @@ body {
     padding: 20px 40px;
     border-bottom: 3px solid #FFD700; 
     position: relative;
-    z-index: 10;
+    z-index: 100; /* Incrementado para estar siempre al frente */
     background-color: #000000; 
 }
 
@@ -66,7 +66,8 @@ body {
     width: 100%;
     height: 100vh; 
     overflow: hidden; 
-    margin-top: -93px; 
+    margin-top: -93px; /* Ajuste para la altura del header */
+    z-index: 10; /* Z-index base para los heroes */
 }
 
 .slider-wrapper {
@@ -97,7 +98,7 @@ body {
     position: absolute;
     bottom: 80px;
     left: 80px;
-    z-index: 2;
+    z-index: 12; /* Sobre el slide */
     max-width: 600px;
 }
 
@@ -125,13 +126,22 @@ body {
 
 
 /* --- 2. Contenido Principal y Sección Intro --- */
+
+/* ### CAMBIO AQUÍ: z-index y position eliminados ### */
 .content-area {
     padding: 40px;
     max-width: 1200px; 
     margin: 0 auto; 
-    position: relative; 
-    z-index: 5;
+    /* position: relative;  <- ELIMINADO */
+    /* z-index: 5;          <- ELIMINADO */
 }
+
+/* ### NUEVA REGLA: Solo para la home page ### */
+.home-content {
+    position: relative;
+    z-index: 50; /* Para que flote sobre el hero-slider */
+}
+
 
 .intro-section {
     text-align: center;
@@ -310,18 +320,16 @@ body {
 
 
 /* --- 6. Contenido de las Páginas de Raza (Texto y Crías) --- */
-/* Se ha cambiado .breed-page a .breed-page-content */
 .breed-page-content {
-    /* Ya no necesita el h1 aquí, ni la imagen/video principal */
 }
 
 .breed-page-content .breed-content {
-    max-width: 900px; /* Ancho máximo para el texto */
-    margin: 0 auto; /* Centrar el bloque de texto */
-    color: #f0f0f0; /* Blanco suave */
+    max-width: 900px; 
+    margin: 0 auto; 
+    color: #f0f0f0; 
     font-size: 1.1em;
     line-height: 1.8;
-    padding: 20px 0; /* Un poco de padding vertical */
+    padding: 20px 0; 
 }
 
 .breed-page-content .breed-content h2 {
@@ -362,11 +370,10 @@ body {
 }
 
 
-/* --- 7. Estilos de la Página de Raza (Hero y Video Grande) (NUEVO) --- */
+/* --- 7. Estilos de la Página de Raza (Hero y Video Grande) --- */
 
-/* Hero para la página de raza */
 .hero-breed {
-    height: 60vh; /* Altura más baja que el hero principal, pero aún grande */
+    height: 60vh; 
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -374,41 +381,40 @@ body {
     justify-content: center;
     align-items: center;
     color: #FFD700;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.9); /* Sombra fuerte para el texto */
-    position: relative;
-    z-index: 1; /* Para estar debajo del header, pero sobre el video */
-    margin-top: -93px; /* Igual que el hero principal */
-    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); /* Capa oscura */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.9); 
+    position: relative; /* Importante para el z-index */
+    z-index: 10; /* Detrás del header (100) pero delante del contenido (1) */
+    margin-top: -93px; 
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); 
 }
 
 .hero-breed h1 {
-    font-size: 4.5em; /* Título muy grande */
+    font-size: 4.5em; 
     text-align: center;
-    margin-bottom: 0; /* Quitar margen inferior que tenía antes */
+    margin-bottom: 0; 
     line-height: 1;
 }
 
-/* Sección del video a pantalla completa (o casi) */
 .video-section {
     width: 100%;
-    padding: 20px; /* Un pequeño padding general */
-    background-color: #000; /* Fondo negro */
-    margin-bottom: 40px; /* Espacio antes del contenido */
+    padding: 20px; 
+    background-color: #000; 
+    margin-bottom: 40px; 
+    position: relative; /* Añadido para z-index */
+    z-index: 20; /* Para que esté por encima del hero */
 }
 
-/* Contenedor responsivo para el video (16:9) */
+/* ### CAMBIO AQUÍ: Se quitó el borde y el padding ### */
 .video-responsive-container {
-    max-width: 1200px; /* Ocupa casi todo el ancho, pero tiene un límite */
-    margin: 0 auto; /* Centrar el video */
+    max-width: 1200px; 
+    margin: 0 auto; 
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding-top: 56.25%; /* Proporción 16:9 (altura es 56.25% del ancho) */
-    
-    /* Le aplicamos el marco amarillo al contenedor del video */
-    border: 6px solid #FFD700;
-    padding: 8px;
-    background-color: #000;
+    padding-top: 56.25%; 
+    /* border: 6px solid #FFD700;  <- ELIMINADO */
+    /* padding: 8px;               <- ELIMINADO */
+    /* background-color: #000;     <- ELIMINADO */
 }
 
 .video-responsive-container iframe {
