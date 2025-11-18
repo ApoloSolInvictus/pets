@@ -1,59 +1,67 @@
 /* --- Configuración Global --- */
 * {
+    /* Esto hace que el tamaño de las cajas incluya el borde y el padding */
     box-sizing: border-box; 
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif; 
-    background-color: #000000; 
-    color: #FFFFFF; 
+    font-family: Arial, sans-serif; /* Una fuente limpia y legible */
+    background-color: #000000; /* Fondo negro principal */
+    color: #FFFFFF; /* Texto blanco */
     line-height: 1.6;
 }
 
-/* --- Encabezado y Navegación (Sin cambios) --- */
+/* --- Encabezado y Navegación --- */
 .main-header {
-    display: flex; 
-    justify-content: space-between; 
+    display: flex; /* Coloca el logo y el menú en línea */
+    justify-content: space-between; /* Espacio entre el logo y el menú */
     align-items: center;
     padding: 20px 40px;
-    border-bottom: 3px solid #FFD700;
+    border-bottom: 3px solid #FFD700; /* Línea inferior amarilla */
     /* Damos una posición para que esté sobre el slider */
     position: relative;
     z-index: 10;
     background-color: #000000; /* Fondo negro para el header */
 }
 
-.logo h1 {
-    font-size: 2.5em;
-    color: #FFD700; 
-    font-weight: bold;
+/* Estilos para el logo (reemplaza al .logo h1) */
+.logo a {
+    display: block; /* Ayuda a alinear la imagen */
+}
+
+.logo img {
+    /* Ajusta este alto según veas conveniente */
+    height: 50px; 
+    width: auto; /* El ancho se ajusta solo para no deformar la imagen */
+    display: block; /* Elimina espacios extra debajo de la imagen */
 }
 
 .main-nav ul {
-    list-style: none; 
-    display: flex; 
+    list-style: none; /* Quita los puntos de la lista */
+    display: flex; /* Coloca los elementos del menú en línea */
 }
 
 .main-nav li {
-    margin-left: 25px; 
+    margin-left: 25px; /* Espacio entre elementos del menú */
 }
 
 .main-nav a {
-    text-decoration: none; 
+    text-decoration: none; /* Quita el subrayado de los enlaces */
     color: #FFFFFF;
     font-weight: bold;
     font-size: 1.1em;
     padding-bottom: 5px;
-    border-bottom: 2px solid transparent; 
-    transition: all 0.3s ease; 
+    border-bottom: 2px solid transparent; /* Borde inferior transparente */
+    transition: all 0.3s ease; /* Transición suave */
 }
 
+/* Efecto al pasar el mouse sobre el menú */
 .main-nav a:hover,
 .main-nav a.active {
-    color: #FFD700; 
-    border-bottom: 2px solid #FFD700; 
+    color: #FFD700; /* Color amarillo al pasar el mouse */
+    border-bottom: 2px solid #FFD700; /* Borde amarillo al pasar el mouse */
 }
 
 /* --- 1. Hero Slider (NUEVO) --- */
@@ -63,7 +71,7 @@ body {
     height: 70vh; /* 70% de la altura de la ventana */
     overflow: hidden; /* Oculta las diapositivas que no se ven */
     /* Colocamos el slider detrás del header */
-    margin-top: -96px; /* Ajusta esto al alto exacto de tu header */
+    margin-top: -96px; /* Ajusta esto al alto exacto de tu header (padding 2*20px + alto logo 50px + borde 3px = 93px. 96px da un pequeño margen) */
 }
 
 .slider-wrapper {
@@ -171,29 +179,33 @@ body {
 
 .gallery {
     display: grid;
+    /* Crea una cuadrícula responsiva: 
+       Intenta poner 3 columnas (1fr 1fr 1fr).
+       Si no caben, pon 2. Si no, pon 1. */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; 
+    gap: 30px; /* Espacio entre las tarjetas */
 }
 
 .pet-card {
-    background-color: #111; 
-    border: 1px solid #333; 
+    background-color: #111; /* Un fondo negro un poco más claro */
+    border: 1px solid #333; /* Borde sutil para la tarjeta */
 }
 
+/* ESTA ES LA PARTE CLAVE: El Recuadro Amarillo */
 .photo-frame {
-    border: 6px solid #FFD700; 
-    padding: 8px; 
-    background-color: #000; 
-    margin: 15px; 
+    border: 6px solid #FFD700; /* ¡El recuadro amarillo que pediste! */
+    padding: 8px; /* Espacio entre el recuadro y la foto */
+    background-color: #000; /* Fondo negro dentro del recuadro */
+    margin: 15px; /* Margen para separar el recuadro del borde de la tarjeta */
 }
 
 .photo-frame img {
-    width: 100%; 
-    display: block; 
+    width: 100%; /* La imagen ocupa todo el espacio del recuadro */
+    display: block; /* Evita espacios extra debajo de la imagen */
 }
 
 .pet-info {
-    padding: 0 20px 20px 20px; 
+    padding: 0 20px 20px 20px; /* Relleno para la info debajo de la foto */
     text-align: center;
 }
 
@@ -223,11 +235,11 @@ body {
     background-color: #FFFFFF;
 }
 
-/* --- 4. Pie de Página (Sin cambios) --- */
+/* --- 4. Pie de Página --- */
 .main-footer {
     text-align: center;
     padding: 20px;
     margin-top: 40px;
-    border-top: 3px solid #FFD700; 
-    color: #888; 
+    border-top: 3px solid #FFD700; /* Línea superior amarilla */
+    color: #888; /* Color grisáceo para el copyright */
 }
