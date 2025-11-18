@@ -26,7 +26,7 @@ body {
     background-color: #000000; /* Fondo negro para el header */
 }
 
-/* Estilos para el logo (reemplaza al .logo h1) */
+/* Estilos para el logo */
 .logo a {
     display: block; /* Ayuda a alinear la imagen */
 }
@@ -45,6 +45,7 @@ body {
 
 .main-nav li {
     margin-left: 25px; /* Espacio entre elementos del menú */
+    position: relative; /* Clave para el dropdown */
 }
 
 .main-nav a {
@@ -64,17 +65,13 @@ body {
     border-bottom: 2px solid #FFD700; /* Borde amarillo al pasar el mouse */
 }
 
-/* --- 1. Hero Slider (CORREGIDO) --- */
+/* --- 1. Hero Slider --- */
 .hero-slider {
-    position: relative; /* Contenedor para las diapositivas absolutas */
+    position: relative; 
     width: 100%;
-    height: 100vh; /* 100% de la altura de la ventana */
-    overflow: hidden; /* Oculta las diapositivas que no se ven */
-    
-    /* LA CORRECCIÓN:
-      Pull-up = (padding 2*20px + alto logo 50px + borde 3px = 93px)
-      Cambiamos -96px por -93px para un ajuste perfecto.
-    */
+    height: 100vh; 
+    overflow: hidden; 
+    /* Corrección del alto del header */
     margin-top: -93px; 
 }
 
@@ -84,17 +81,15 @@ body {
 }
 
 .slide {
-    position: absolute; /* Todas las diapositivas apiladas */
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover; /* Cubre todo el espacio */
-    background-position: center; /* Centra la imagen */
-    opacity: 0; /* Ocultas por defecto */
-    animation: fadeSlider 25s infinite; /* 25s = 5s por 5 imágenes */
-    
-    /* Efecto de 'capa' oscura sobre la imagen para legibilidad */
+    background-size: cover; 
+    background-position: center; 
+    opacity: 0; 
+    animation: fadeSlider 25s infinite; 
     box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
 }
 
@@ -119,7 +114,7 @@ body {
     color: #FFD700;
     font-weight: bold;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para legibilidad */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
 }
 
 .slide-content p {
@@ -131,10 +126,10 @@ body {
 /* Animación de Fundido (Fade) */
 @keyframes fadeSlider {
     0%   { opacity: 0; }
-    10%  { opacity: 1; } /* Aparece (dura 2.5s) */
-    20%  { opacity: 1; } /* Se mantiene visible (dura 2.5s) */
-    30%  { opacity: 0; } /* Desaparece (dura 2.5s) */
-    100% { opacity: 0; } /* Permanece oculto */
+    10%  { opacity: 1; } 
+    20%  { opacity: 1; } 
+    30%  { opacity: 0; } 
+    100% { opacity: 0; } 
 }
 
 
@@ -143,15 +138,14 @@ body {
     padding: 40px;
     max-width: 1200px; 
     margin: 0 auto; 
-    position: relative; /* Para que esté sobre el slider */
+    position: relative; 
     z-index: 5;
 }
 
 .intro-section {
     text-align: center;
-    max-width: 900px; /* Ancho máximo para la intro */
-    margin: 0 auto 60px auto; /* Centrado y con espacio inferior */
-    /* Estilo sobrio sin recuadro */
+    max-width: 900px; 
+    margin: 0 auto 60px auto; 
 }
 
 .intro-section h2 {
@@ -162,7 +156,7 @@ body {
 
 .intro-section p {
     font-size: 1.1em;
-    color: #f0f0f0; /* Un blanco menos intenso */
+    color: #f0f0f0; 
     line-height: 1.8;
 }
 
@@ -182,15 +176,14 @@ body {
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Espacio entre las tarjetas */
+    gap: 30px; 
 }
 
 .pet-card {
-    background-color: #111; /* Un fondo negro un poco más claro */
-    border: 1px solid #333; /* Borde sutil para la tarjeta */
+    background-color: #111; 
+    border: 1px solid #333; 
 }
 
-/* El Recuadro Amarillo */
 .photo-frame {
     border: 6px solid #FFD700; 
     padding: 8px; 
@@ -239,6 +232,91 @@ body {
     text-align: center;
     padding: 20px;
     margin-top: 40px;
-    border-top: 3px solid #FFD700; /* Línea superior amarilla */
-    color: #888; /* Color grisáceo para el copyright */
+    border-top: 3px solid #FFD700; 
+    color: #888; 
+}
+
+
+/* --- 5. Estilos del Menú Desplegable (NUEVO) --- */
+
+.main-nav a span { /* Estilo para las flechitas */
+    font-size: 0.7em;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* --- Nivel 1: Menú Desplegable (Perros/Gatos) --- */
+.dropdown-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 120%; /* Justo debajo del enlace, con un margen */
+    left: -20px; /* Alineado a la izquierda del item del menú */
+    background-color: #000000;
+    border: 2px solid #FFD700;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 200px; /* Ancho mínimo */
+    z-index: 100;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Mostrar el menú al pasar el mouse sobre el 'li' padre */
+.dropdown:hover .dropdown-menu {
+    display: block; 
+}
+
+.dropdown-menu li {
+    margin: 0; /* Resetear margen para items del dropdown */
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
+    border-bottom: none; /* Quitar borde inferior de enlaces principales */
+    font-size: 1em;
+    display: flex; /* Para alinear flecha lateral */
+    justify-content: space-between; 
+    align-items: center;
+}
+
+/* Quitar el borde amarillo "activo" de los items del dropdown */
+.dropdown-menu li a:hover,
+.dropdown-menu li a.active {
+    border-bottom: none; 
+}
+
+/* Color de fondo al pasar el mouse sobre items del dropdown */
+.dropdown-menu li a:hover {
+    background-color: #FFD700;
+    color: #000000;
+}
+
+/* --- Nivel 2: Sub-Menú (Razas) --- */
+.sub-dropdown-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: -2px; /* Alinear con el top del item (contando borde) */
+    left: 100%; /* A la derecha del menú padre */
+    background-color: #000000;
+    border: 2px solid #FFD700;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 250px; /* Más ancho para las listas de razas */
+    border-radius: 5px;
+}
+
+/* Mostrar sub-menú al pasar el mouse */
+.sub-dropdown:hover .sub-dropdown-menu {
+    display: block; 
+}
+
+/* Resaltar el item "Perros" o "Gatos" cuando su sub-menú está abierto */
+.sub-dropdown:hover > a {
+    background-color: #FFD700;
+    color: #000000;
 }
