@@ -38,7 +38,6 @@ body {
     display: block; /* Elimina espacios extra debajo de la imagen */
 }
 
-/* --- CORRECCIÓN AQUÍ --- */
 /* Usamos '>' para que 'display: flex' solo afecte al <ul> principal */
 .main-nav > ul {
     list-style: none; /* Quita los puntos de la lista */
@@ -239,7 +238,7 @@ body {
 }
 
 
-/* --- 5. Estilos del Menú Desplegable --- */
+/* --- 5. Estilos del Menú Desplegable (CORREGIDO) --- */
 
 .main-nav a span { /* Estilo para las flechitas */
     font-size: 0.7em;
@@ -262,8 +261,6 @@ body {
     min-width: 200px; /* Ancho mínimo */
     z-index: 100;
     border-radius: 5px; /* Bordes redondeados */
-    /* Importante: Aseguramos que no sea 'flex' */
-    display: none; 
 }
 
 /* Mostrar el menú al pasar el mouse sobre el 'li' padre */
@@ -276,13 +273,19 @@ body {
     width: 100%;
 }
 
+/* Estilo general para todos los links del dropdown */
 .dropdown-menu li a {
     padding: 10px 20px;
     display: block;
     width: 100%;
     border-bottom: none; /* Quitar borde inferior de enlaces principales */
     font-size: 1em;
-    display: flex; /* Para alinear flecha lateral */
+}
+
+/* --- AJUSTE DE CORRECCIÓN --- */
+/* Aplicamos 'flex' SOLO a los links que tienen un submenú (Perros, Gatos) */
+.sub-dropdown > a {
+    display: flex;
     justify-content: space-between; 
     align-items: center;
 }
