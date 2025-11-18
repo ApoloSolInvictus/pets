@@ -131,6 +131,7 @@ body {
     padding: 40px;
     max-width: 1200px; 
     margin: 0 auto; 
+    /* z-index y position quitados de aquí */
 }
 
 .home-content {
@@ -316,9 +317,6 @@ body {
 
 
 /* --- 6. Contenido de las Páginas de Raza (Texto y Crías) --- */
-.breed-page-content {
-}
-
 .breed-page-content .breed-content {
     max-width: 900px; 
     margin: 0 auto; 
@@ -326,6 +324,10 @@ body {
     font-size: 1.1em;
     line-height: 1.8;
     padding: 20px 0; 
+    /* Añadimos position relative para que aparezca sobre el hero */
+    position: relative;
+    z-index: 50;
+    background-color: #000; /* Fondo negro para que el texto sea legible */
 }
 
 .breed-page-content .breed-content h2 {
@@ -362,7 +364,20 @@ body {
 }
 
 .breed-page-content .gallery-title {
-    margin-top: 60px; 
+    margin-top: 60px;
+    /* Añadimos position relative para que aparezca sobre el hero */
+    position: relative;
+    z-index: 50;
+    background-color: #000; /* Fondo negro para que el texto sea legible */
+    padding-top: 40px; /* Espacio para separarlo del hero */
+}
+
+/* Hacemos que la galería también tenga fondo negro */
+.gallery {
+    position: relative;
+    z-index: 50;
+    background-color: #000;
+    padding-bottom: 20px;
 }
 
 
@@ -386,6 +401,10 @@ body {
     margin-top: -93px; 
     box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); 
     padding: 20px;
+    
+    /* Hacemos que el Hero se "pegue" a la parte de arriba */
+    position: sticky;
+    top: 0;
 }
 
 .hero-breed h1 {
